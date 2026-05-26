@@ -1,22 +1,14 @@
-export function DailyForm({
-  earnings,
-  expenses,
-  workedHours,
-  distanceKm,
-  handleSubmit,
-  handleChange,
-  editId
-}) {
+export function DailyForm({ formData, handleSubmit, handleChange, editId }) {
   return (
-    <div className="">
-        <h2>Adicionar diária</h2>
+    <div>
+      <h2>{editId ? "Editar diária" : "Adicionar diária"}</h2>
       <form onSubmit={handleSubmit}>
         <label htmlFor="earnings">Ganhos</label>
         <input
           type="number"
           name="earnings"
           id="earnings"
-          value={earnings}
+          value={formData.earnings}
           onChange={handleChange}
         />
 
@@ -25,7 +17,7 @@ export function DailyForm({
           type="number"
           name="expenses"
           id="expenses"
-          value={expenses}
+          value={formData.expenses}
           onChange={handleChange}
         />
 
@@ -34,7 +26,7 @@ export function DailyForm({
           type="number"
           name="workedHours"
           id="workedHours"
-          value={workedHours}
+          value={formData.workedHours}
           onChange={handleChange}
         />
 
@@ -43,13 +35,11 @@ export function DailyForm({
           type="number"
           name="distanceKm"
           id="distanceKm"
-          value={distanceKm}
+          value={formData.distanceKm}
           onChange={handleChange}
         />
 
-        <button type="submit">
-            {editId ? "Salvar" : "Adicionar"}
-        </button>
+        <button type="submit">{editId ? "Salvar" : "Adicionar"}</button>
       </form>
     </div>
   );

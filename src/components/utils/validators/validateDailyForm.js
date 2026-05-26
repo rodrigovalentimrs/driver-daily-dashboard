@@ -7,7 +7,7 @@ export function validateDailyForm(formData) {
   const distanceKm = Number(formData.distanceKm);
 
   // earnings
-  if (!formData.earnings) {
+  if (formData.earnings === "") {
     errors.earnings = "O campo ganhos é obrigatório";
   } else if (isNaN(earnings)) {
     errors.earnings = "Digite um número válido";
@@ -16,8 +16,8 @@ export function validateDailyForm(formData) {
   }
 
   // expenses
-  if (!formData.expenses) {
-    errors.expenses = "O campo é obrigatório";
+  if (formData.expenses === "") {
+    errors.expenses = "O campo despesas é obrigatório";
   } else if (isNaN(expenses)) {
     errors.expenses = "Digite um número válido";
   } else if (expenses < 0) {
@@ -25,8 +25,8 @@ export function validateDailyForm(formData) {
   }
 
   // workedHours
-  if (!formData.workedHours) {
-    errors.workedHours = "O campo horas são obrigatórias";
+  if (formData.workedHours === "") {
+    errors.workedHours = "O campo horas é obrigatório";
   } else if (isNaN(workedHours)) {
     errors.workedHours = "Digite um número válido";
   } else if (workedHours <= 0) {
@@ -34,8 +34,8 @@ export function validateDailyForm(formData) {
   }
 
   // distanceKm
-  if (!formData.distanceKm) {
-    errors.distanceKm = "O campo é obrigatória";
+  if (formData.distanceKm === "") {
+    errors.distanceKm = "O campo distância é obrigatório";
   } else if (isNaN(distanceKm)) {
     errors.distanceKm = "Digite um número válido";
   } else if (distanceKm < 0) {

@@ -1,5 +1,5 @@
 import { useState } from "react";
-import validateDailyForm from "../componets/utils/validators/validateDailyForm"
+import { validateDailyForm } from "../components/utils/validators/validateDailyForm"
 
 export function useDailyData() {
     const initialFormData = {
@@ -11,13 +11,21 @@ export function useDailyData() {
 
     const [list, setList] = useState([]);
     const [formData, setformData] = useState(initialFormData)
-    const [error, setError] = useState("")
+    const [error, setError] = useState({})
     const [editId, setEditId] = useState(null);
+    const [isModalOpen, setIsModalOpen] = useState(false);
 
-    function resetFormData(){
+    function resetFormData() {
         setformData(initialFormData);
     }
 
+    function openModal() {
+        setIsModalOpen(true);
+    }
+
+    function closeModal() {
+        setIsModalOpen(false);
+    }
     function handleChange(e) {
         const { name, value } = e.target;
 
@@ -30,32 +38,31 @@ export function useDailyData() {
     function handleSubmit(e) {
         e.preventDefault();
 
-        const errorMessage = validateDailyForm(formData);
+        const errors = validateDailyForm(formData);
 
-        if (errorMessage) {
-            setError(errorMessage);
-            return
-        };
-        setError("");
+        if (Object.keys(errors).length > 0) {
+            setError(errors);
+            return;
+        }
+        setError({});
 
         if (editId !== null) {
             updateData();
         } else {
             addData();
         }
-        resetFormData();
+        closeModal();
     }
 
     function addData() {
         const newData = {
             id: crypto.randomUUID(),
-            earnings: formData.earnings,
-            expenses: formData.expenses,
-            workedHours: formData.workedHours,
-            distanceKm: formData.distanceKm
+            ...formData
         }
 
-        setList((prev) => [...prev, newData])
+        setList((prev) => [...prev, newData]);
+        resetFormData();
+
 
     }
 
@@ -64,7 +71,13 @@ export function useDailyData() {
 
         if (!itemToEdit) return;
 
-        setformData(itemToEdit)
+        setformData({
+            earnings: itemToEdit.earnings,
+            expenses: itemToEdit.expenses,
+            workedHours: itemToEdit.workedHours,
+            distanceKm: itemToEdit.distanceKm
+        });
+
         setEditId(id);
     }
 
@@ -98,6 +111,10 @@ export function useDailyData() {
         handleSubmit,
         addData,
         startEditData,
+        isModalOpen,
         deleteData,
+        openModal,
+        closeModal
+
     }
 }
