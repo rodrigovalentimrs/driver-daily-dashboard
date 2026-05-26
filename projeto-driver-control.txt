@@ -1,0 +1,461 @@
+🚗 PROJETO — DRIVER CONTROL
+Sistema Inteligente para Motoristas de Aplicativo
+
+========================================================
+📌 DESCRIÇÃO DO PROJETO
+========================================================
+
+Aplicação web para controle financeiro, produtividade
+e planejamento de motoristas de aplicativo.
+
+O sistema ajudará o motorista a:
+
+- registrar ganhos
+- registrar despesas
+- calcular lucro
+- acompanhar metas
+- analisar desempenho
+- entender custo operacional
+
+A proposta NÃO é criar um sistema gigante de uma vez.
+
+O projeto será construído por versões,
+começando pelo núcleo principal
+e evoluindo gradualmente.
+
+========================================================
+🎯 OBJETIVO PRINCIPAL
+========================================================
+
+Criar uma aplicação organizada e funcional para:
+
+- prática de front-end
+- estudo de arquitetura
+- manipulação de tabelas
+- cálculos financeiros
+- dashboards
+- organização de sistemas
+
+O projeto também poderá futuramente evoluir para:
+- sistema real
+- app mobile
+- SaaS
+- versão fullstack
+
+========================================================
+🧠 CONCEITO DO SISTEMA
+========================================================
+
+O sistema será dividido em módulos.
+
+Cada módulo terá uma responsabilidade específica.
+
+O objetivo é evitar:
+- excesso de complexidade
+- código gigante
+- travamentos durante o desenvolvimento
+
+A estratégia será:
+
+1. criar núcleo funcional
+2. organizar arquitetura
+3. adicionar funcionalidades
+4. evoluir gradualmente
+
+========================================================
+🧱 ESTRUTURA VISUAL
+========================================================
+
+O sistema utilizará layout estilo dashboard.
+
+Estrutura sugerida:
+
+┌──────────────────────────────┐
+│ HEADER                       │
+├────────────┬─────────────────┤
+│ MENU       │ MAIN            │
+│            │                 │
+│ Diário     │ Tabelas         │
+│ Metas      │ Painéis         │
+│ Custos     │ Relatórios      │
+│ Corridas   │ Formulários     │
+│            │                 │
+├────────────┴─────────────────┤
+│ FOOTER                       │
+└──────────────────────────────┘
+
+========================================================
+🧠 MENU LATERAL OU MENU SUPERIOR?
+========================================================
+
+RECOMENDAÇÃO:
+Usar MENU LATERAL (sidebar).
+
+Motivos:
+- melhor organização
+- mais escalável
+- padrão de dashboard profissional
+- melhor para múltiplas telas
+
+========================================================
+📄 NÚCLEO PRINCIPAL DO SISTEMA
+========================================================
+
+O núcleo principal será:
+
+CONTROLE DIÁRIO FINANCEIRO
+
+Todo o restante do sistema dependerá disso.
+
+========================================================
+📄 TELA 1 — CONTROLE DIÁRIO
+========================================================
+
+Objetivo:
+Registrar os dados diários do motorista.
+
+========================================================
+📋 CAMPOS PRINCIPAIS
+========================================================
+
+DATA:
+- dia da semana
+- dia do mês
+
+GANHOS:
+- ganho total do dia
+
+DESPESAS:
+- combustível
+- alimentação
+- outras despesas
+
+PRODUTIVIDADE:
+- km rodado
+- horas trabalhadas
+
+RESULTADOS:
+- lucro líquido
+- ganho por hora
+- ganho por km
+
+========================================================
+📊 TOTALIZAÇÃO
+========================================================
+
+Ao final da tabela:
+
+- total bruto
+- total líquido
+- total despesas
+- total combustível
+- total km
+- total horas
+- média diária
+- média por hora
+- média por km
+
+========================================================
+🧠 OBSERVAÇÃO IMPORTANTE
+========================================================
+
+Inicialmente NÃO separar:
+
+- Uber
+- 99
+- inDriver
+- particular
+
+Motivo:
+evitar complexidade excessiva na V1.
+
+Inicialmente:
+usar apenas GANHO TOTAL.
+
+Futuramente poderá existir separação por app.
+
+========================================================
+📄 TELA 2 — PLANEJAMENTO
+========================================================
+
+Objetivo:
+Definir metas de faturamento.
+
+========================================================
+📋 FUNCIONALIDADES
+========================================================
+
+- meta diária
+- meta semanal
+- meta mensal
+
+O sistema mostrará:
+
+- valor planejado
+- valor realizado
+- quanto falta para meta
+
+========================================================
+📊 DADOS AUTOMÁTICOS
+========================================================
+
+Os valores realizados NÃO serão preenchidos manualmente.
+
+O sistema puxará automaticamente os dados
+da tela diária.
+
+========================================================
+📈 PAINEL DE INDICADORES
+========================================================
+
+O sistema poderá mostrar:
+
+- faturamento bruto
+- lucro líquido
+- despesas
+- km rodado
+- horas trabalhadas
+- média diária
+- dias restantes do mês
+- valor restante da meta
+
+========================================================
+📄 TELA 3 — CUSTO POR KM
+========================================================
+
+Objetivo:
+Calcular custo operacional do motorista.
+
+========================================================
+📋 DADOS PRINCIPAIS
+========================================================
+
+- combustível
+- consumo do carro
+- IPVA
+- seguro
+- pneus
+- óleo
+- manutenção
+- km mensal
+
+========================================================
+📊 RESULTADOS
+========================================================
+
+O sistema calculará:
+
+- custo mensal
+- custo anual
+- custo por km
+
+========================================================
+🧠 OBSERVAÇÃO IMPORTANTE
+========================================================
+
+Inicialmente NÃO calcular:
+
+- depreciação complexa
+- financiamento avançado
+- múltiplos cenários
+
+Motivo:
+reduzir complexidade inicial.
+
+========================================================
+📄 TELA 4 — ANALISADOR DE CORRIDAS
+========================================================
+
+Objetivo:
+Avaliar corridas manualmente.
+
+========================================================
+📋 INPUTS
+========================================================
+
+- valor da corrida
+- distância
+- tempo estimado
+
+========================================================
+📊 RESULTADO
+========================================================
+
+O sistema mostrará:
+
+- corrida ruim
+- corrida aceitável
+- corrida boa
+
+Baseado:
+- custo por km
+- lucro desejado
+
+========================================================
+🚀 FUNCIONALIDADES FUTURAS
+========================================================
+
+Futuramente o sistema poderá ter:
+
+- separação por app
+- gráficos
+- relatórios avançados
+- app mobile
+- backend
+- autenticação
+- sincronização online
+- leitura automática de corridas
+- geolocalização
+
+========================================================
+⚠️ IMPORTANTE
+========================================================
+
+Essas funcionalidades NÃO fazem parte da versão inicial.
+
+O objetivo agora é:
+
+- aprender
+- construir versões pequenas
+- terminar funcionalidades
+- evoluir gradualmente
+
+========================================================
+📁 ESTRUTURA INICIAL DE PASTAS
+========================================================
+
+driver-control/
+│
+├── index.html
+├── planning.html
+├── costs.html
+├── rides.html
+│
+├── css/
+│   ├── style.css
+│   ├── layout.css
+│   ├── dashboard.css
+│   └── responsive.css
+│
+├── js/
+│   ├── app.js
+│   ├── daily.js
+│   ├── planning.js
+│   ├── costs.js
+│   ├── rides.js
+│   ├── calculations.js
+│   ├── storage.js
+│   └── utils.js
+│
+├── components/
+│   ├── sidebar.js
+│   ├── header.js
+│   ├── table.js
+│   └── cards.js
+│
+└── README.md
+
+========================================================
+🧠 ARQUITETURA DO PROJETO
+========================================================
+
+O sistema utilizará:
+
+- layout persistente
+- dashboard administrativo
+- componentes reutilizáveis
+- renderização dinâmica
+- organização modular
+
+========================================================
+🚀 ESTRATÉGIA DE DESENVOLVIMENTO
+========================================================
+
+--------------------------------------------------------
+🟢 VERSÃO 1 — NÚCLEO PRINCIPAL
+--------------------------------------------------------
+
+Tela diária simples.
+
+Funcionalidades:
+- tabela
+- ganhos
+- despesas
+- km
+- horas
+- lucro
+- localStorage
+
+Objetivo:
+criar núcleo funcional.
+
+--------------------------------------------------------
+🟡 VERSÃO 2 — METAS E PLANEJAMENTO
+--------------------------------------------------------
+
+Adicionar:
+- metas
+- painel resumo
+- cálculo automático
+
+--------------------------------------------------------
+🟣 VERSÃO 3 — DASHBOARD
+--------------------------------------------------------
+
+Adicionar:
+- cards
+- indicadores
+- gráficos simples
+
+--------------------------------------------------------
+🔵 VERSÃO 4 — CUSTO POR KM
+--------------------------------------------------------
+
+Adicionar:
+- cálculo operacional
+- custo real do motorista
+
+--------------------------------------------------------
+🔴 VERSÃO 5 — ANALISADOR DE CORRIDAS
+--------------------------------------------------------
+
+Adicionar:
+- cálculo de corrida
+- classificação de corridas
+
+========================================================
+🎯 REGRAS DO PROJETO
+========================================================
+
+- começar pequeno
+- evitar exageros
+- dividir funcionalidades
+- focar em terminar versões
+- organizar código desde o início
+- evoluir gradualmente
+
+========================================================
+🧠 OBJETIVO PROFISSIONAL
+========================================================
+
+Este projeto servirá para:
+
+- prática avançada de front-end
+- estudo de dashboards
+- arquitetura de aplicações
+- manipulação de tabelas
+- cálculos financeiros
+- sistemas administrativos
+- evolução futura para fullstack/mobile
+
+========================================================
+💡 FILOSOFIA DO PROJETO
+========================================================
+
+Primeiro criar o núcleo funcional.
+
+Depois:
+- organizar
+- melhorar
+- automatizar
+- expandir
