@@ -8,7 +8,7 @@ export function DailyForm({
   editId
 }) {
   return (
-    <div>
+    <div className="">
         <h2>Adicionar diária</h2>
       <form onSubmit={handleSubmit}>
         <label htmlFor="earnings">Ganhos</label>
