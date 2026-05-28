@@ -79,6 +79,7 @@ export function useDailyData() {
         });
 
         setEditId(id);
+        openModal();
     }
 
     function updateData() {
@@ -109,7 +110,6 @@ export function useDailyData() {
         editId,
         handleChange,
         handleSubmit,
-        addData,
         startEditData,
         isModalOpen,
         deleteData,

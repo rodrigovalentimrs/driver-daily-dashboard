@@ -2,28 +2,37 @@ import { DailyTableRow } from "./DailyTableRow";
 
 export function DailyTable({ list, startEditData, deleteData }) {
   return (
-    <table>
-      <thead>
-        <tr>
-          <th>Ganhos</th>
-          <th>Despesas</th>
-          <th>Horas</th>
-          <th>Km</th>
-          <th>Ganho/Hora</th>
-          <th>Ganho/Km</th>
-          <th>Ações</th>
+    <table className="w-full bg-white rounded-xl overflow-hidden shadow">
+      <thead className="bg-gray-200">
+        <tr className="text-left">
+          <th className="p-3">Ganhos</th>
+          <th className="p-3">Despesas</th>
+          <th className="p-3">Horas</th>
+          <th className="p-3">Km</th>
+          <th className="p-3">Ganho/Hora</th>
+          <th className="p-3">Ganho/Km</th>
+          <th className="p-3">Lucro</th>
+          <th className="p-3">Ações</th>
         </tr>
       </thead>
 
       <tbody>
-        {list.map((item) => (
-          <DailyTableRow
-            key={item.id}
-            item={item}
-            startEditData={startEditData}
-            deleteData={deleteData}
-          />
-        ))}
+        {list.length === 0 ? (
+          <tr>
+            <td colSpan={8} className="p-6 text-center text-gray-400">
+              Nenhuma diária registrada ainda.
+            </td>
+          </tr>
+        ) : (
+          list.map((item) => (
+            <DailyTableRow
+              key={item.id}
+              item={item}
+              startEditData={startEditData}
+              deleteData={deleteData}
+            />
+          ))
+        )}
       </tbody>
     </table>
   );

@@ -1,3 +1,6 @@
+import { Button } from "./ui/Button";
+import { formatCurrency } from "./ui/formatters/formatCurrency";
+
 export function DailyTableRow({ item, startEditData, deleteData }) {
   const earnings = Number(item.earnings);
   const expenses = Number(item.expenses);
@@ -9,19 +12,19 @@ export function DailyTableRow({ item, startEditData, deleteData }) {
   const gainPerKm = km > 0 ? (earnings / km).toFixed(2) : 0;
 
   return (
-    <tr>
-      <td>{item.earnings}</td>
-      <td>{item.expenses}</td>
-      <td>{item.workedHours}</td>
-      <td>{item.distanceKm}</td>
-      <td>{gainPerHour}</td>
-      <td>{gainPerKm}</td>
-      <td>{profit}</td>
+    <tr className="border-b hover:bg-gray-50 transition">
+      <td className="p-3">{formatCurrency(item.earnings)}</td>
+      <td className="p-3">{formatCurrency(item.expenses)}</td>
+      <td className="p-3">{item.workedHours}</td>
+      <td className="p-3">{item.distanceKm}</td>
+      <td className="p-3">{formatCurrency(gainPerHour)}</td>
+      <td className="p-3">{formatCurrency(gainPerKm)}</td>
+      <td className="p-3">{formatCurrency(profit)}</td>
 
-      <td>
-        <button onClick={() => startEditData(item.id)}>Editar</button>
+      <td className="p-3">
+        <Button variant="secondary" onClick={() => startEditData(item.id)}>Editar</Button>
 
-        <button onClick={() => deleteData(item.id)}>Excluir</button>
+        <Button variant="danger" onClick={() => deleteData(item.id)}>Excluir</Button>
       </td>
     </tr>
   );

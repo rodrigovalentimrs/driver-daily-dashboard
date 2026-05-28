@@ -13,25 +13,27 @@ function App() {
     deleteData,
     openModal,
     isModalOpen,
-    closeModal
+    closeModal,
   } = useDailyData();
 
   return (
-    <main>
-      <button onClick={openModal}>Adicionar diária</button>
-      <Modal isOpen={isModalOpen} onClose={closeModal}>
-        <DailyForm
-          handleSubmit={handleSubmit}
-          formData={formData}
-          handleChange={handleChange}
-        />
-      </Modal>
+    <main className="min-h-screen bg-gray-100 p-6">
+      <div className="max-w-5xl mx-auto flex flex-col gap-6">
+        <button onClick={openModal}>Adicionar diária</button>
+        <Modal isOpen={isModalOpen} onClose={closeModal}>
+          <DailyForm
+            handleSubmit={handleSubmit}
+            formData={formData}
+            handleChange={handleChange}
+          />
+        </Modal>
 
-      <DailyTable
-        list={list}
-        startEditData={startEditData}
-        deleteData={deleteData}
-      />
+        <DailyTable
+          list={list}
+          startEditData={startEditData}
+          deleteData={deleteData}
+        />
+      </div>
     </main>
   );
 }
