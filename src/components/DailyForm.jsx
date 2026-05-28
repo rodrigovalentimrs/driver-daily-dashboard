@@ -1,7 +1,13 @@
 import { Button } from "./ui/Button";
 import { Input } from "./ui/Input";
 
-export function DailyForm({ formData, handleSubmit, handleChange, editId }) {
+export function DailyForm({
+  formData,
+  handleSubmit,
+  handleChange,
+  editId,
+  error,
+}) {
   return (
     <div className="flex flex-col gap-4">
       <h2 className="text-2xl font-bold">
@@ -19,6 +25,9 @@ export function DailyForm({ formData, handleSubmit, handleChange, editId }) {
             value={formData.earnings}
             onChange={handleChange}
           />
+          {error.earnings && (
+            <p className="text-red-500 text-sm">{error.earnings}</p>
+          )}
         </div>
 
         <div className="flex flex-col gap-1">
@@ -32,6 +41,9 @@ export function DailyForm({ formData, handleSubmit, handleChange, editId }) {
             value={formData.expenses}
             onChange={handleChange}
           />
+          {error.earnings && (
+            <p className="text-red-500 text-sm">{error.expenses}</p>
+          )}
         </div>
 
         <div className="flex flex-col gap-1">
@@ -45,6 +57,9 @@ export function DailyForm({ formData, handleSubmit, handleChange, editId }) {
             value={formData.workedHours}
             onChange={handleChange}
           />
+          {error.earnings && (
+            <p className="text-red-500 text-sm">{error.workedHours}</p>
+          )}
         </div>
 
         <div className="flex flex-col gap-1">
@@ -58,6 +73,9 @@ export function DailyForm({ formData, handleSubmit, handleChange, editId }) {
             value={formData.distanceKm}
             onChange={handleChange}
           />
+          {error.earnings && (
+            <p className="text-red-500 text-sm">{error.distanceKm}</p>
+          )}
         </div>
 
         <Button type="submit">{editId ? "Salvar" : "Adicionar"}</Button>

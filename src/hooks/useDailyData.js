@@ -25,6 +25,9 @@ export function useDailyData() {
 
     function closeModal() {
         setIsModalOpen(false);
+        resetFormData();
+        setEditId(null);
+        setError({});
     }
     function handleChange(e) {
         const { name, value } = e.target;

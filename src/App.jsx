@@ -14,6 +14,7 @@ function App() {
     openModal,
     isModalOpen,
     closeModal,
+    error
   } = useDailyData();
 
   return (
@@ -22,6 +23,7 @@ function App() {
         <button onClick={openModal}>Adicionar diária</button>
         <Modal isOpen={isModalOpen} onClose={closeModal}>
           <DailyForm
+            error={error}
             handleSubmit={handleSubmit}
             formData={formData}
             handleChange={handleChange}
