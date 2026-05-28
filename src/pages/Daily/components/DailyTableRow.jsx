@@ -1,5 +1,6 @@
 import { Button } from "../../../components/ui/Button";
 import { formatCurrency } from "../utils/formatters/formatCurrency";
+import { Trash2, Pencil } from "lucide-react";
 
 export function DailyTableRow({ item, startEditData, deleteData }) {
   const earnings = Number(item.earnings);
@@ -22,9 +23,9 @@ export function DailyTableRow({ item, startEditData, deleteData }) {
       <td className="p-3">{formatCurrency(profit)}</td>
 
       <td className="p-3 flex gap-2">
-        <Button variant="secondary" onClick={() => startEditData(item.id)}>Editar</Button>
+        <Button variant="secondary" onClick={() => startEditData(item.id)}><Pencil size={18} /></Button>
 
-        <Button variant="danger" onClick={() => deleteData(item.id)}>Excluir</Button>
+        <Button variant="danger" onClick={() => deleteData(item.id)}><Trash2 size={18} /></Button>
       </td>
     </tr>
   );

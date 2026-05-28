@@ -34,6 +34,7 @@ export function DailyPage() {
             formData={formData}
             handleChange={handleChange}
             editId={editId}
+            closeModal={closeModal}
           />
         </Modal>
 

@@ -1,5 +1,6 @@
 import { Button } from "../../../components/ui/Button";
 import { Input } from "../../../components/ui/Input";
+import { X } from "lucide-react";
 
 export function DailyForm({
   formData,
@@ -7,12 +8,24 @@ export function DailyForm({
   handleChange,
   editId,
   error,
+  closeModal,
 }) {
   return (
     <div className="flex flex-col gap-4">
-      <h2 className="text-2xl font-bold">
-        {editId  ? "Editar diária" : "Adicionar diária"}
-      </h2>
+      <div className="flex justify-between items-center">
+        <h2 className="text-2xl font-bold">
+          {editId ? "Editar diária" : "Adicionar diária"}
+        </h2>
+
+        <Button
+          onClick={closeModal}
+          variant="ghost"
+          type="button"
+        >
+          <X size={18} />
+        </Button>
+      </div>
+
       <form onSubmit={handleSubmit} className="flex flex-col gap-4">
         <div className="flex flex-col gap-1">
           <label htmlFor="earnings">Ganhos</label>
@@ -77,8 +90,14 @@ export function DailyForm({
             <p className="text-red-500 text-sm">{error.distanceKm}</p>
           )}
         </div>
-
-        <Button type="submit">{editId ? "Salvar" : "Adicionar"}</Button>
+        <div className="flex justify-end gap-2">
+          <Button variant="secondary" type="button" onClick={closeModal}>
+            Cancelar
+          </Button>
+          <Button variant="primary" type="submit">
+            {editId ? "Salvar" : "Adicionar"}
+          </Button>
+        </div>
       </form>
     </div>
   );
