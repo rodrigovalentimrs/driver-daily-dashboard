@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { validateDailyForm } from "../components/utils/validators/validateDailyForm"
+import { validateDailyForm } from "../validators/validateDailyForm";
 
 export function useDailyData() {
     const initialFormData = {

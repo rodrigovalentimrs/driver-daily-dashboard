@@ -1,4 +1,4 @@
-import { DailyTableRow } from "./DailyTableRow";
+import { DailyTableRow } from "../components/DailyTableRow";
 
 export function DailyTable({ list, startEditData, deleteData }) {
   return (

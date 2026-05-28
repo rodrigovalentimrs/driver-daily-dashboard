@@ -1,5 +1,5 @@
-import { Button } from "./ui/Button";
-import { formatCurrency } from "./ui/formatters/formatCurrency";
+import { Button } from "../../../components/ui/Button";
+import { formatCurrency } from "../utils/formatters/formatCurrency";
 
 export function DailyTableRow({ item, startEditData, deleteData }) {
   const earnings = Number(item.earnings);
