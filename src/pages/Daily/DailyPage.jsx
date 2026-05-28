@@ -2,6 +2,7 @@ import { useDailyData } from "./hooks/useDailyData";
 import { DailyForm } from "./components/DailyForm";
 import { DailyTable } from "./components/DailyTable";
 import { Modal } from "../../components/Modal";
+import { Button } from "../../components/ui/Button";
 
 export function DailyPage() {
   const {
@@ -14,19 +15,25 @@ export function DailyPage() {
     openModal,
     isModalOpen,
     closeModal,
-    error
+    error,
+    editId,
   } = useDailyData();
 
   return (
     <main className="min-h-screen bg-gray-100 p-6">
-      <div className="max-w-5xl mx-auto flex flex-col gap-6">
-        <button onClick={openModal}>Adicionar diária</button>
+      <div className="max-w-5xl mx-auto flex flex-col gap-2">
+        <div className="flex justify-end">
+          <Button variant="primary" onClick={openModal}>
+            Adicionar diária
+          </Button>
+        </div>
         <Modal isOpen={isModalOpen} onClose={closeModal}>
           <DailyForm
             error={error}
             handleSubmit={handleSubmit}
             formData={formData}
             handleChange={handleChange}
+            editId={editId}
           />
         </Modal>
 

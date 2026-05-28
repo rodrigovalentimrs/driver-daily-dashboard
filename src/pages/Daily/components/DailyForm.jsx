@@ -11,7 +11,7 @@ export function DailyForm({
   return (
     <div className="flex flex-col gap-4">
       <h2 className="text-2xl font-bold">
-        {editId ? "Editar diária" : "Adicionar diária"}
+        {editId  ? "Editar diária" : "Adicionar diária"}
       </h2>
       <form onSubmit={handleSubmit} className="flex flex-col gap-4">
         <div className="flex flex-col gap-1">
@@ -41,7 +41,7 @@ export function DailyForm({
             value={formData.expenses}
             onChange={handleChange}
           />
-          {error.earnings && (
+          {error.expenses && (
             <p className="text-red-500 text-sm">{error.expenses}</p>
           )}
         </div>
@@ -57,7 +57,7 @@ export function DailyForm({
             value={formData.workedHours}
             onChange={handleChange}
           />
-          {error.earnings && (
+          {error.workedHours && (
             <p className="text-red-500 text-sm">{error.workedHours}</p>
           )}
         </div>
@@ -73,7 +73,7 @@ export function DailyForm({
             value={formData.distanceKm}
             onChange={handleChange}
           />
-          {error.earnings && (
+          {error.distanceKm && (
             <p className="text-red-500 text-sm">{error.distanceKm}</p>
           )}
         </div>

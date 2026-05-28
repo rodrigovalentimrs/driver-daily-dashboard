@@ -10,13 +10,13 @@ export function useDailyData() {
     };
 
     const [list, setList] = useState([]);
-    const [formData, setformData] = useState(initialFormData)
+    const [formData, setFormData] = useState(initialFormData)
     const [error, setError] = useState({})
     const [editId, setEditId] = useState(null);
     const [isModalOpen, setIsModalOpen] = useState(false);
 
     function resetFormData() {
-        setformData(initialFormData);
+        setFormData(initialFormData);
     }
 
     function openModal() {
@@ -32,7 +32,7 @@ export function useDailyData() {
     function handleChange(e) {
         const { name, value } = e.target;
 
-        setformData((prev) => ({
+        setFormData((prev) => ({
             ...prev,
             [name]: value
         }));
@@ -74,7 +74,7 @@ export function useDailyData() {
 
         if (!itemToEdit) return;
 
-        setformData({
+        setFormData({
             earnings: itemToEdit.earnings,
             expenses: itemToEdit.expenses,
             workedHours: itemToEdit.workedHours,
@@ -82,7 +82,9 @@ export function useDailyData() {
         });
 
         setEditId(id);
+
         openModal();
+
     }
 
     function updateData() {
@@ -97,8 +99,9 @@ export function useDailyData() {
                     : data
             )
         )
-        resetFormData();
         setEditId(null);
+        resetFormData();
+
     }
 
     function deleteData(id) {
