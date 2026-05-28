@@ -1,4 +1,4 @@
-import { Button } from "../../../components/ui/Button";
+import { Button } from "@/components/ui/Button";
 import { formatCurrency } from "../utils/formatters/formatCurrency";
 import { Trash2, Pencil } from "lucide-react";
 

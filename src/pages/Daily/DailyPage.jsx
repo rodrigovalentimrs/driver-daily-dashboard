@@ -1,8 +1,8 @@
 import { useDailyData } from "./hooks/useDailyData";
 import { DailyForm } from "./components/DailyForm";
 import { DailyTable } from "./components/DailyTable";
-import { Modal } from "../../components/Modal";
-import { Button } from "../../components/ui/Button";
+import { Modal } from "@/components/Modal";
+import { Button } from "@/components/ui/Button";
 
 export function DailyPage() {
   const {
