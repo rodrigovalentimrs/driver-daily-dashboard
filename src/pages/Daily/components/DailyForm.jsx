@@ -27,6 +27,23 @@ export function DailyForm({
       </div>
 
       <form onSubmit={handleSubmit} className="flex flex-col gap-4">
+        
+        <div className="flex flex-col gap-1">
+          <label htmlFor="Date">Data</label>
+          <Input
+            type="date"
+            name="date"
+            id="date"
+            step="0.01"
+            min="0"
+            value={formData.date}
+            onChange={handleChange}
+          />
+          {errors.date && (
+            <p className="text-red-500 text-sm">{errors.date}</p>
+          )}
+        </div>
+
         <div className="flex flex-col gap-1">
           <label htmlFor="earnings">Ganhos</label>
           <Input

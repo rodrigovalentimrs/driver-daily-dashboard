@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 
 const initialFormData = {
+  date: "",
   earnings: "",
   expenses: "",
   workedHours: "",

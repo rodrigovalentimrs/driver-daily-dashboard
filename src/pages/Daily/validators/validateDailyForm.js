@@ -1,12 +1,22 @@
 export function validateDailyForm(formData) {
   const errorMessage = {};
 
+  const date = formData.date;
+  const weekday = formData.weekday;
   const earnings = Number(formData.earnings);
   const expenses = Number(formData.expenses);
   const workedHours = Number(formData.workedHours);
   const distanceKm = Number(formData.distanceKm);
 
-  if (formData.earnings === "") {
+  if (date === "") {
+    errorMessage.date = "O campo data é obrigatório";
+  }
+
+  if (weekday === "") {
+    errorMessage.weekday = "O campo dia da semana é obrigatório";
+  }
+
+  if (earnings === "") {
     errorMessage.earnings = "O campo ganhos é obrigatório";
   } else if (isNaN(earnings)) {
     errorMessage.earnings = "Digite um número válido";
@@ -14,7 +24,7 @@ export function validateDailyForm(formData) {
     errorMessage.earnings = "Valor deve ser maior que zero";
   }
 
-  if (formData.expenses === "") {
+  if (expenses === "") {
     errorMessage.expenses = "O campo despesas é obrigatório";
   } else if (isNaN(expenses)) {
     errorMessage.expenses = "Digite um número válido";
@@ -22,7 +32,7 @@ export function validateDailyForm(formData) {
     errorMessage.expenses = "Não pode ser negativo";
   }
 
-  if (formData.workedHours === "") {
+  if (workedHours === "") {
     errorMessage.workedHours = "O campo horas é obrigatório";
   } else if (isNaN(workedHours)) {
     errorMessage.workedHours = "Digite um número válido";
@@ -30,7 +40,7 @@ export function validateDailyForm(formData) {
     errorMessage.workedHours = "Deve ser maior que zero";
   }
 
-  if (formData.distanceKm === "") {
+  if (distanceKm === "") {
     errorMessage.distanceKm = "O campo distância é obrigatório";
   } else if (isNaN(distanceKm)) {
     errorMessage.distanceKm = "Digite um número válido";

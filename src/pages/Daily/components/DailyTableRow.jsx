@@ -3,21 +3,25 @@ import { formatCurrency } from "../utils/formatters/formatCurrency";
 import { Trash2, Pencil } from "lucide-react";
 
 export function DailyTableRow({ item, startEditData, deleteData }) {
+  const date = item.date;
+  const weekday = item.weekday;
   const earnings = Number(item.earnings);
   const expenses = Number(item.expenses);
-  const hours = Number(item.workedHours);
-  const km = Number(item.distanceKm);
+  const workedHours = Number(item.workedHours);
+  const distanceKm = Number(item.distanceKm);
 
   const profit = earnings - expenses;
-  const gainPerHour = hours > 0 ? (earnings / hours).toFixed(2) : 0;
-  const gainPerKm = km > 0 ? (earnings / km).toFixed(2) : 0;
+  const gainPerHour = workedHours > 0 ? (earnings / workedHours).toFixed(2) : 0;
+  const gainPerKm = distanceKm > 0 ? (earnings / distanceKm).toFixed(2) : 0;
 
   return (
     <tr className="border-b hover:bg-gray-50 transition">
-      <td className="p-3">{formatCurrency(item.earnings)}</td>
-      <td className="p-3">{formatCurrency(item.expenses)}</td>
-      <td className="p-3">{item.workedHours}</td>
-      <td className="p-3">{item.distanceKm}</td>
+      <td className="p-3">{date}</td>
+      <td className="p-3">{weekday}</td>
+      <td className="p-3">{formatCurrency(earnings)}</td>
+      <td className="p-3">{formatCurrency(expenses)}</td>
+      <td className="p-3">{workedHours}</td>
+      <td className="p-3">{distanceKm}</td>
       <td className="p-3">{formatCurrency(gainPerHour)}</td>
       <td className="p-3">{formatCurrency(gainPerKm)}</td>
       <td className="p-3">{formatCurrency(profit)}</td>
