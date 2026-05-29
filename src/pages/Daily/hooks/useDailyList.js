@@ -1,7 +1,8 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { saveDailyData, getDailyData } from "@/pages/Daily/services/dailyStorage";
 
 export function useDailyList() {
-  const [list, setList] = useState([]);
+  const [list, setList] = useState(() => getDailyData());
 
   function addData(formData) {
     const newData = {
@@ -27,6 +28,10 @@ export function useDailyList() {
       prev.filter((data) => data.id !== id)
     );
   }
+
+  useEffect(() => {
+    saveDailyData(list);
+  }, [list]);
 
   return {
     list,
