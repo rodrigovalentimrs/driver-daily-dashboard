@@ -1,126 +1,103 @@
-import { useState } from "react";
 import { validateDailyForm } from "../validators/validateDailyForm";
+import { useDailyModal } from "./useDailyModal";
+import { useDailyForm } from "./useDailyForm";
+import { useDailyList } from "./useDailyList";
 
 export function useDailyData() {
-    const initialFormData = {
-        earnings: "",
-        expenses: "",
-        workedHours: "",
-        distanceKm: ""
-    };
+  const {
+    formData,
+    setFormData,
+    handleChange,
 
-    const [list, setList] = useState([]);
-    const [formData, setFormData] = useState(initialFormData)
-    const [errors, setErrors] = useState({})
-    const [editId, setEditId] = useState(null);
-    const [isModalOpen, setIsModalOpen] = useState(false);
+    errors,
+    setErrors,
 
-    function resetFormData() {
-        setFormData(initialFormData);
+    editId,
+    setEditId,
+
+    resetFormData,
+  } = useDailyForm();
+
+  const {
+    list,
+    addData,
+    updateData,
+    deleteData,
+  } = useDailyList();
+
+  const {
+    isModalOpen,
+    openModal,
+    closeModal: closeModalState,
+  } = useDailyModal();
+
+  function closeModal() {
+    closeModalState();
+
+    resetFormData();
+    setEditId(null);
+    setErrors({});
+  }
+
+  function handleSubmit(e) {
+    e.preventDefault();
+
+    const validationErrors =
+      validateDailyForm(formData);
+
+    if (
+      Object.keys(validationErrors).length > 0
+    ) {
+      setErrors(validationErrors);
+      return;
     }
 
-    function openModal() {
-        setIsModalOpen(true);
+    setErrors({});
+
+    if (editId !== null) {
+      updateData(editId, formData);
+    } else {
+      addData(formData);
     }
 
-    function closeModal() {
-        setIsModalOpen(false);
-        resetFormData();
-        setEditId(null);
-        setErrors({});
-    }
-    function handleChange(e) {
-        const { name, value } = e.target;
+    closeModal();
+  }
 
-        setFormData((prev) => ({
-            ...prev,
-            [name]: value
-        }));
-    }
+  function startEditData(id) {
+    const itemToEdit = list.find(
+      (data) => data.id === id
+    );
 
-    function handleSubmit(e) {
-        e.preventDefault();
+    if (!itemToEdit) return;
 
-        const errorMessage = validateDailyForm(formData);
+    setFormData({
+      earnings: itemToEdit.earnings,
+      expenses: itemToEdit.expenses,
+      workedHours: itemToEdit.workedHours,
+      distanceKm: itemToEdit.distanceKm,
+    });
 
-        if (Object.keys(errorMessage).length > 0) {
-            setErrors(errors);
-            return;
-        }
-        setErrors({});
+    setEditId(id);
 
-        if (editId !== null) {
-            updateData();
-        } else {
-            addData();
-        }
-        closeModal();
-    }
+    openModal();
+  }
 
-    function addData() {
-        const newData = {
-            id: crypto.randomUUID(),
-            ...formData
-        }
+  return {
+    handleSubmit,
 
-        setList((prev) => [...prev, newData]);
-        resetFormData();
+    formData,
+    handleChange,
 
+    list,
 
-    }
+    startEditData,
+    deleteData,
 
-    function startEditData(id) {
-        const itemToEdit = list.find((data) => data.id === id);
+    openModal,
+    closeModal,
+    isModalOpen,
 
-        if (!itemToEdit) return;
-
-        setFormData({
-            earnings: itemToEdit.earnings,
-            expenses: itemToEdit.expenses,
-            workedHours: itemToEdit.workedHours,
-            distanceKm: itemToEdit.distanceKm
-        });
-
-        setEditId(id);
-
-        openModal();
-
-    }
-
-    function updateData() {
-        setList((prev) =>
-            prev.map((data) =>
-                data.id === editId
-                    ? {
-                        ...formData,
-                        id: editId
-
-                    }
-                    : data
-            )
-        )
-        setEditId(null);
-        resetFormData();
-
-    }
-
-    function deleteData(id) {
-        setList((prev) => prev.filter((data) => data.id !== id));
-    }
-
-
-    return {
-        list,
-        formData,
-        errors,
-        editId,
-        handleChange,
-        handleSubmit,
-        startEditData,
-        isModalOpen,
-        deleteData,
-        openModal,
-        closeModal
-
-    }
+    errors,
+    editId,
+  };
 }
