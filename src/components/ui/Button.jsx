@@ -1,29 +1,29 @@
+import { cn } from "./utils/cn";
+
+const variants = {
+  primary:
+    "bg-blue-600 hover:bg-blue-700 text-white",
+
+  secondary:
+    "bg-gray-200 hover:bg-gray-300 text-black",
+
+  danger:
+    "bg-red-600 hover:bg-red-700 text-white",
+};
+
 export function Button({
   children,
   variant = "primary",
+  className,
   ...props
 }) {
-  const variants = {
-    primary:
-      "bg-blue-600 hover:bg-blue-700 text-white",
-
-    danger:
-      "bg-red-600 hover:bg-red-700 text-white",
-
-    secondary:
-      "bg-gray-200 hover:bg-gray-300 text-gray-800",
-  };
-
   return (
     <button
-      className={`
-        px-4
-        py-2
-        rounded-lg
-        transition
-        font-medium
-        ${variants[variant]}
-      `}
+      className={cn(
+        "px-4 py-2 rounded-lg font-medium transition cursor-pointer",
+        variants[variant],
+        className
+      )}
       {...props}
     >
       {children}

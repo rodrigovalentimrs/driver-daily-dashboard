@@ -11,7 +11,7 @@ export function useDailyData() {
 
     const [list, setList] = useState([]);
     const [formData, setFormData] = useState(initialFormData)
-    const [error, setError] = useState({})
+    const [errors, setErrors] = useState({})
     const [editId, setEditId] = useState(null);
     const [isModalOpen, setIsModalOpen] = useState(false);
 
@@ -27,7 +27,7 @@ export function useDailyData() {
         setIsModalOpen(false);
         resetFormData();
         setEditId(null);
-        setError({});
+        setErrors({});
     }
     function handleChange(e) {
         const { name, value } = e.target;
@@ -41,13 +41,13 @@ export function useDailyData() {
     function handleSubmit(e) {
         e.preventDefault();
 
-        const errors = validateDailyForm(formData);
+        const errorMessage = validateDailyForm(formData);
 
-        if (Object.keys(errors).length > 0) {
-            setError(errors);
+        if (Object.keys(errorMessage).length > 0) {
+            setErrors(errors);
             return;
         }
-        setError({});
+        setErrors({});
 
         if (editId !== null) {
             updateData();
@@ -112,7 +112,7 @@ export function useDailyData() {
     return {
         list,
         formData,
-        error,
+        errors,
         editId,
         handleChange,
         handleSubmit,

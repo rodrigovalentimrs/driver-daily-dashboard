@@ -7,7 +7,7 @@ export function DailyForm({
   handleSubmit,
   handleChange,
   editId,
-  error,
+  errors,
   closeModal,
 }) {
   return (
@@ -38,8 +38,8 @@ export function DailyForm({
             value={formData.earnings}
             onChange={handleChange}
           />
-          {error.earnings && (
-            <p className="text-red-500 text-sm">{error.earnings}</p>
+          {errors.earnings && (
+            <p className="text-red-500 text-sm">{errors.earnings}</p>
           )}
         </div>
 
@@ -54,8 +54,8 @@ export function DailyForm({
             value={formData.expenses}
             onChange={handleChange}
           />
-          {error.expenses && (
-            <p className="text-red-500 text-sm">{error.expenses}</p>
+          {errors.expenses && (
+            <p className="text-red-500 text-sm">{errors.expenses}</p>
           )}
         </div>
 
@@ -70,8 +70,8 @@ export function DailyForm({
             value={formData.workedHours}
             onChange={handleChange}
           />
-          {error.workedHours && (
-            <p className="text-red-500 text-sm">{error.workedHours}</p>
+          {errors.workedHours && (
+            <p className="text-red-500 text-sm">{errors.workedHours}</p>
           )}
         </div>
 
@@ -86,8 +86,8 @@ export function DailyForm({
             value={formData.distanceKm}
             onChange={handleChange}
           />
-          {error.distanceKm && (
-            <p className="text-red-500 text-sm">{error.distanceKm}</p>
+          {errors.distanceKm && (
+            <p className="text-red-500 text-sm">{errors.distanceKm}</p>
           )}
         </div>
         <div className="flex justify-end gap-2">
