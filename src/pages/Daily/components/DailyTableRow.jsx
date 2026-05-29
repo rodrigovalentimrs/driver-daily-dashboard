@@ -1,10 +1,12 @@
-import { Button } from "@/components/ui/Button";
+import {formatDate} from "../utils/formatters/formatDate";
+import {getWeekDay} from "../utils/formatters/formatWeekDay";
 import { formatCurrency } from "../utils/formatters/formatCurrency";
+import { Button } from "@/components/ui/Button";
 import { Trash2, Pencil } from "lucide-react";
 
 export function DailyTableRow({ item, startEditData, deleteData }) {
-  const date = item.date;
-  const weekday = item.weekday;
+  const date = formatDate(item.date);
+  const weekday = getWeekDay(item.date);
   const earnings = Number(item.earnings);
   const expenses = Number(item.expenses);
   const workedHours = Number(item.workedHours);
