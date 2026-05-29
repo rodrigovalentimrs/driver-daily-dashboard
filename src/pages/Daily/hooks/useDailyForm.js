@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 const initialFormData = {
   earnings: "",
@@ -24,6 +24,16 @@ export function useDailyForm() {
   function resetFormData() {
     setFormData(initialFormData);
   }
+
+  useEffect(() => {
+    if (!errors) return;
+
+    const timer = setTimeout(() => {
+      setErrors({});
+    }, 2000);
+
+    return () => clearTimeout(timer);
+  }, [errors]);
 
   return {
     formData,
