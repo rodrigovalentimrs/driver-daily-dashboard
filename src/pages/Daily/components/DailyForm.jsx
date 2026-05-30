@@ -16,7 +16,6 @@ export function DailyForm({
         <h2 className="text-2xl font-bold">
           {editId ? "Editar diária" : "Adicionar diária"}
         </h2>
-
         <Button onClick={closeModal} variant="ghost" type="button">
           <X size={18} />
         </Button>

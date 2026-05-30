@@ -6,7 +6,7 @@ export function DailyTable({ list, startEditData, deleteData }) {
       <thead className="bg-gray-200">
         <tr className="text-left">
           <th className="p-3">Dia</th>
-          <th className="p-3">Dia da semana</th>
+          <th className="p-3">Semana</th>
           <th className="p-3">Ganhos</th>
           <th className="p-3">Despesas</th>
           <th className="p-3">Horas</th>
