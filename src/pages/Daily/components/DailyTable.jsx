@@ -11,9 +11,9 @@ export function DailyTable({ list, startEditData, deleteData }) {
           <th className="p-3">Despesas</th>
           <th className="p-3">Horas</th>
           <th className="p-3">Km</th>
-          <th className="p-3">Ganho/Hora</th>
-          <th className="p-3">Ganho/Km</th>
           <th className="p-3">Lucro</th>
+          <th className="p-3">R$/Hr</th>
+          <th className="p-3">R$/Km</th>
           <th className="p-3">Ações</th>
         </tr>
       </thead>

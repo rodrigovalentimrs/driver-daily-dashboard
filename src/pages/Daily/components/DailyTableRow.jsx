@@ -24,9 +24,10 @@ export function DailyTableRow({ item, startEditData, deleteData }) {
       <td className="p-3">{formatCurrency(expenses)}</td>
       <td className="p-3">{workedHours}</td>
       <td className="p-3">{distanceKm}</td>
+      <td className="p-3">{formatCurrency(profit)}</td>
+
       <td className="p-3">{formatCurrency(gainPerHour)}</td>
       <td className="p-3">{formatCurrency(gainPerKm)}</td>
-      <td className="p-3">{formatCurrency(profit)}</td>
 
       <td className="p-3 flex gap-2">
         <Button variant="secondary" onClick={() => startEditData(item.id)}>

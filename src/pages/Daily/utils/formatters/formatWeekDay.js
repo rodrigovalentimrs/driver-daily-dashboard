@@ -7,5 +7,6 @@ export function getWeekDay(value) {
 
   return date.toLocaleDateString("pt-BR", {
     weekday: "long",
-  });
+  })
+  .replace("-feira", "");
 }
