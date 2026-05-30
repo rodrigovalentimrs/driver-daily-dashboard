@@ -1,11 +1,10 @@
 import { useState, useEffect } from "react";
 
 const initialFormData = {
-  date: "",
   earnings: "",
   expenses: "",
   workedHours: "",
-  distanceKm: "",
+  distanceKm: ""
 };
 
 export function useDailyForm() {
@@ -31,7 +30,7 @@ export function useDailyForm() {
 
     const timer = setTimeout(() => {
       setErrors({});
-    }, 2000);
+    }, 3000);
 
     return () => clearTimeout(timer);
   }, [errors]);
