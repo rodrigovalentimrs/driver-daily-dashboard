@@ -25,7 +25,7 @@ export function DailyPage() {
 
   return (
     <main className="min-h-screen bg-gray-100 p-6">
-      <d className="max-w-5xl mx-auto flex flex-col gap-2">
+      <div className="max-w-5xl mx-auto flex flex-col gap-2">
         <div className="flex justify-between items-center">
           <div className="flex items-baseline gap-2 px-4">
             <h2 className="text-2xl font-bold capitalize">{month}</h2>
