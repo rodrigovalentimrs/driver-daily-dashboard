@@ -10,7 +10,12 @@ export function useDailyList() {
 
     const newData = {
       id: crypto.randomUUID(),
-      ...formData,
+      earnings: parseFloat(formData.earnings) || 0,
+      expenses: parseFloat(formData.expenses) || 0,
+      workedHours: parseFloat(formData.workedHours) || 0,
+      distanceKm: parseFloat(formData.distanceKm) || 0,
+
+
       date: now.toISOString(),
       weekday: getWeekDay(now.toISOString()),
       createdAt: now.toISOString(),
@@ -26,7 +31,10 @@ export function useDailyList() {
         data.id === editId
           ? {
               ...data,
-              ...formData,
+              earnings: parseFloat(formData.earnings) || 0,
+              expenses: parseFloat(formData.expenses) || 0,
+              workedHours: parseFloat(formData.workedHours) || 0,
+              distanceKm: parseFloat(formData.distanceKm) || 0,
               updatedAt: new Date().toISOString(),
             }
           : data

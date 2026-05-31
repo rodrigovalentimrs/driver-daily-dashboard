@@ -21,7 +21,7 @@ export function DailyTable({ list, startEditData, deleteData }) {
       <tbody>
         {list.length === 0 ? (
           <tr>
-            <td colSpan={8} className="p-6 text-center text-gray-400">
+            <td colSpan={10} className="p-6 text-center text-gray-400">
               Nenhuma diária registrada ainda.
             </td>
           </tr>
