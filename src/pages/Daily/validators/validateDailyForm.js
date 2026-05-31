@@ -1,42 +1,40 @@
 export function validateDailyForm(formData) {
-  const errorMessage = {};
+  const errors = {};
 
-  const earnings = Number(formData.earnings);
-  const expenses = Number(formData.expenses);
-  const workedHours = Number(formData.workedHours);
-  const distanceKm = Number(formData.distanceKm);
+  const { earnings, expenses, workedHours, distanceKm } = formData;
 
-  if (!earnings) {
-    errorMessage.earnings = "O campo ganhos é obrigatório";
-  } else if (isNaN(earnings)) {
-    errorMessage.earnings = "Digite um número válido";
-  } else if (earnings <= 0) {
-    errorMessage.earnings = "Valor deve ser maior que zero";
+  // Valida na ordem certa: vazio → inválido → regra de negócio
+  if (earnings === "" || earnings === null) {
+    errors.earnings = "O campo ganhos é obrigatório";
+  } else if (isNaN(Number(earnings))) {
+    errors.earnings = "Digite um número válido";
+  } else if (Number(earnings) <= 0) {
+    errors.earnings = "Valor deve ser maior que zero";
   }
 
-  if (!expenses) {
-    errorMessage.expenses = "O campo despesas é obrigatório";
-  } else if (isNaN(expenses)) {
-    errorMessage.expenses = "Digite um número válido";
-  } else if (expenses < 0) {
-    errorMessage.expenses = "Não pode ser negativo";
+  if (expenses === "" || expenses === null) {
+    errors.expenses = "O campo despesas é obrigatório";
+  } else if (isNaN(Number(expenses))) {
+    errors.expenses = "Digite um número válido";
+  } else if (Number(expenses) < 0) {
+    errors.expenses = "Não pode ser negativo";
   }
 
-  if (!workedHours) {
-    errorMessage.workedHours = "O campo horas é obrigatório";
-  } else if (isNaN(workedHours)) {
-    errorMessage.workedHours = "Digite um número válido";
-  } else if (workedHours <= 0) {
-    errorMessage.workedHours = "Deve ser maior que zero";
+  if (workedHours === "" || workedHours === null) {
+    errors.workedHours = "O campo horas é obrigatório";
+  } else if (isNaN(Number(workedHours))) {
+    errors.workedHours = "Digite um número válido";
+  } else if (Number(workedHours) <= 0) {
+    errors.workedHours = "Deve ser maior que zero";
   }
 
-  if (!distanceKm) {
-    errorMessage.distanceKm = "O campo distância é obrigatório";
-  } else if (isNaN(distanceKm)) {
-    errorMessage.distanceKm = "Digite um número válido";
-  } else if (distanceKm < 0) {
-    errorMessage.distanceKm = "Não pode ser negativo";
+  if (distanceKm === "" || distanceKm === null) {
+    errors.distanceKm = "O campo distância é obrigatório";
+  } else if (isNaN(Number(distanceKm))) {
+    errors.distanceKm = "Digite um número válido";
+  } else if (Number(distanceKm) < 0) {
+    errors.distanceKm = "Não pode ser negativo";
   }
 
-  return errorMessage;
+  return errors;
 }

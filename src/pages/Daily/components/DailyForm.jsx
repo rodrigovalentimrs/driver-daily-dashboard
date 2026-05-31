@@ -21,6 +21,12 @@ export function DailyForm({
         </Button>
       </div>
 
+      {errors.general && (
+        <p className="text-red-500 text-sm bg-red-50 border border-red-200 rounded-lg px-3 py-2">
+          {errors.general}
+        </p>
+      )}
+
       <form onSubmit={handleSubmit} className="flex flex-col gap-2">
         <div className="flex flex-col">
           <label htmlFor="earnings">Ganhos</label>
@@ -33,13 +39,11 @@ export function DailyForm({
             value={formData.earnings}
             onChange={handleChange}
           />
-          {
-            <div className="min-h-5">
-              {errors.earnings && (
-                <p className=" text-red-500 text-sm">{errors.earnings || ""}</p>
-              )}
-            </div>
-          }
+          <div className="min-h-5">
+            {errors.earnings && (
+              <p className="text-red-500 text-sm">{errors.earnings}</p>
+            )}
+          </div>
         </div>
 
         <div className="flex flex-col">
@@ -53,14 +57,11 @@ export function DailyForm({
             value={formData.expenses}
             onChange={handleChange}
           />
-
-          {
-            <div className="min-h-5">
-              {errors.expenses && (
-                <p className=" text-red-500 text-sm">{errors.expenses || ""}</p>
-              )}
-            </div>
-          }
+          <div className="min-h-5">
+            {errors.expenses && (
+              <p className="text-red-500 text-sm">{errors.expenses}</p>
+            )}
+          </div>
         </div>
 
         <div className="flex flex-col">
@@ -74,16 +75,11 @@ export function DailyForm({
             value={formData.workedHours}
             onChange={handleChange}
           />
-
-          {
-            <div className="min-h-5">
-              {errors.workedHours && (
-                <p className=" text-red-500 text-sm">
-                  {errors.workedHours || ""}
-                </p>
-              )}
-            </div>
-          }
+          <div className="min-h-5">
+            {errors.workedHours && (
+              <p className="text-red-500 text-sm">{errors.workedHours}</p>
+            )}
+          </div>
         </div>
 
         <div className="flex flex-col">
@@ -97,16 +93,13 @@ export function DailyForm({
             value={formData.distanceKm}
             onChange={handleChange}
           />
-          {
-            <div className="min-h-5">
-              {errors.distanceKm && (
-                <p className=" text-red-500 text-sm">
-                  {errors.distanceKm || ""}
-                </p>
-              )}
-            </div>
-          }
+          <div className="min-h-5">
+            {errors.distanceKm && (
+              <p className="text-red-500 text-sm">{errors.distanceKm}</p>
+            )}
+          </div>
         </div>
+
         <div className="flex justify-end gap-2">
           <Button variant="secondary" type="button" onClick={closeModal}>
             Cancelar

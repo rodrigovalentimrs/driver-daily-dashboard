@@ -4,7 +4,7 @@ const initialFormData = {
   earnings: "",
   expenses: "",
   workedHours: "",
-  distanceKm: ""
+  distanceKm: "",
 };
 
 export function useDailyForm() {
@@ -14,11 +14,7 @@ export function useDailyForm() {
 
   function handleChange(e) {
     const { name, value } = e.target;
-
-    setFormData((prev) => ({
-      ...prev,
-      [name]: value,
-    }));
+    setFormData((prev) => ({ ...prev, [name]: value }));
   }
 
   function resetFormData() {
@@ -26,7 +22,7 @@ export function useDailyForm() {
   }
 
   useEffect(() => {
-    if (!errors) return;
+    if (Object.keys(errors).length === 0) return;
 
     const timer = setTimeout(() => {
       setErrors({});
@@ -39,13 +35,10 @@ export function useDailyForm() {
     formData,
     setFormData,
     handleChange,
-
     errors,
     setErrors,
-
     editId,
     setEditId,
-
     resetFormData,
   };
 }

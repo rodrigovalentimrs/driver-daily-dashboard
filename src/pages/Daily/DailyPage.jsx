@@ -4,8 +4,7 @@ import { DailyTable } from "./components/DailyTable";
 import { Modal } from "@/components/Modal";
 import { Button } from "@/components/ui/Button";
 import { Plus } from "lucide-react";
-import { getCurrentMonthYear } from "./utils/getCurrentMonthYear";
-
+import { getCurrentMonthYear, getMonthDays } from "./utils/getCurrentMonthYear";
 export function DailyPage() {
   const {
     handleSubmit,
@@ -23,13 +22,15 @@ export function DailyPage() {
 
   const { month, year } = getCurrentMonthYear();
 
+  const days = getMonthDays();
+
   return (
     <main className="min-h-screen bg-gray-100 p-6">
       <div className="max-w-5xl mx-auto flex flex-col gap-2">
         <div className="flex justify-between items-center">
           <div className="flex items-baseline gap-2 px-4">
             <h2 className="text-2xl font-bold capitalize">{month}</h2>
-            <span className="text-lg text-gray-500">{year}</span>{" "}
+            <span className="text-lg text-gray-500">{year}</span>
           </div>
 
           <Button onClick={openModal} className="flex items-center gap-2">
@@ -56,6 +57,7 @@ export function DailyPage() {
         </Modal>
 
         <DailyTable
+          days={days}
           list={list}
           startEditData={startEditData}
           deleteData={deleteData}
@@ -64,4 +66,5 @@ export function DailyPage() {
     </main>
   );
 }
+
 export default DailyPage;

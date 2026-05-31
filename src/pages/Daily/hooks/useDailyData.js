@@ -8,22 +8,14 @@ export function useDailyData() {
     formData,
     setFormData,
     handleChange,
-
     errors,
     setErrors,
-
     editId,
     setEditId,
-
     resetFormData,
   } = useDailyForm();
 
-  const {
-    list,
-    addData,
-    updateData,
-    deleteData,
-  } = useDailyList();
+  const { list, addData, updateData, deleteData } = useDailyList();
 
   const {
     isModalOpen,
@@ -33,7 +25,6 @@ export function useDailyData() {
 
   function closeModal() {
     closeModalState();
-
     resetFormData();
     setEditId(null);
     setErrors({});
@@ -42,12 +33,9 @@ export function useDailyData() {
   function handleSubmit(e) {
     e.preventDefault();
 
-    const validationErrors =
-      validateDailyForm(formData);
+    const validationErrors = validateDailyForm(formData);
 
-    if (
-      Object.keys(validationErrors).length > 0
-    ) {
+    if (Object.keys(validationErrors).length > 0) {
       setErrors(validationErrors);
       return;
     }
@@ -57,16 +45,15 @@ export function useDailyData() {
     if (editId !== null) {
       updateData(editId, formData);
     } else {
-      addData(formData);
+      const nextDay = list.length + 1;
+      addData(formData, nextDay);
     }
 
     closeModal();
   }
 
   function startEditData(id) {
-    const itemToEdit = list.find(
-      (data) => data.id === id
-    );
+    const itemToEdit = list.find((data) => data.id === id);
 
     if (!itemToEdit) return;
 
@@ -78,25 +65,19 @@ export function useDailyData() {
     });
 
     setEditId(id);
-
     openModal();
   }
 
   return {
     handleSubmit,
-
     formData,
     handleChange,
-
     list,
-
     startEditData,
     deleteData,
-
     openModal,
     closeModal,
     isModalOpen,
-
     errors,
     editId,
   };
